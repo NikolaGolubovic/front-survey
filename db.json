@@ -1,0 +1,35 @@
+{
+  "questions": [
+    {
+      "621397": [
+        {
+          "type": "radiogroup",
+          "name": "Favorite TV show?",
+          "title": "Favorite TV show?",
+          "isRequired": true,
+          "colCount": 2,
+          "choices": [
+            "Breaking Bad",
+            "Leftovers",
+            "Seinfeld",
+            "The Simpsons"
+          ]
+        },
+        {
+          "type": "radiogroup",
+          "name": "Who is your favorite actor?",
+          "title": "Who is your favorite actor?",
+          "isRequired": true,
+          "colCount": 2,
+          "choices": [
+            "Joaquin Phoenix",
+            "Leonardo di Caprio",
+            "Gary Oldman",
+            "Al Pacino"
+          ]
+        }
+      ],
+      "id": 1
+    }
+  ]
+}
