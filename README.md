@@ -1,3 +1,7 @@
+[Full Stack App](https://github.com/NikolaGolubovic/happysurvey)
+
+Made by React, Chart.js, Survey.js and little bit of Redux.
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
