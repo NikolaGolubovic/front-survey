@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import surveyServices from "../services/surveyServices";
 
 function Homepage() {
@@ -8,6 +9,7 @@ function Homepage() {
   const [popularSurveys, setPopularSurveys] = useState([]);
   useEffect(() => {
     surveyServices.getAll().then((response) => {
+      console.log("hello", response);
       const { surveys, popular } = response;
       const newestArr = surveys
         .sort((a, b) => new Date(b.created_at) - new Date(a.created_at))
@@ -38,14 +40,14 @@ function Homepage() {
       </p>{" "}
       <br />
       <p>
-        Check <a href="#recent">recent surveys</a> or{" "}
-        <a href="#popular">popular surveys</a>
+        Check <Link to="#recent">recent surveys</Link> or{" "}
+        <Link to="#popular">popular surveys</Link>
       </p>
       <section className="homepage-survey-block" id="on">
         <p>Active surveys:</p>
         {activeSurveys.map((elem) => (
           <div key={elem.id}>
-            <a href={`/api/survey/single/${elem.id}`}>{elem.survey_name}</a>
+            <Link to={`/api/survey/single/${elem.id}`}>{elem.survey_name}</Link>
           </div>
         ))}
       </section>
@@ -53,9 +55,9 @@ function Homepage() {
         <p>Past surveys:</p>
         {offSurveys.map((elem) => (
           <div>
-            <a key={elem.id} href={`/api/survey/single/${elem.id}`}>
+            <Link key={elem.id} to={`/api/survey/single/${elem.id}`}>
               {elem.survey_name}
-            </a>
+            </Link>
           </div>
         ))}
       </section>
@@ -63,7 +65,7 @@ function Homepage() {
         <p>Most recent surveys:</p>
         {recentSurveys.map((elem) => (
           <div key={elem.id}>
-            <a href={`/api/survey/single/${elem.id}`}>{elem.survey_name}</a>
+            <Link to={`/api/survey/single/${elem.id}`}>{elem.survey_name}</Link>
           </div>
         ))}
       </section>
@@ -71,7 +73,7 @@ function Homepage() {
         <p>Most popular surveys:</p>
         {popularSurveys.map((elem) => (
           <div key={elem.id}>
-            <a href={`/api/survey/single/${elem.id}`}>{elem.survey_name}</a>
+            <Link to={`/api/survey/single/${elem.id}`}>{elem.survey_name}</Link>
           </div>
         ))}
       </section>

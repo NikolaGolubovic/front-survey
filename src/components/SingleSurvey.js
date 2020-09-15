@@ -14,7 +14,9 @@ function SingleSurvey(props) {
   const id = props.match.params.id;
 
   useEffect(() => {
+    console.log("hello");
     surveyServices.getSingle(id).then((res) => {
+      console.log(res);
       const stringQuestions = JSON.parse(res.surveyString);
       setJson({ questions: stringQuestions });
       setTitle(res.surveyTitle);
