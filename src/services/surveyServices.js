@@ -18,7 +18,9 @@ const getAll = async () => {
 };
 
 const getSingle = async (id) => {
-  const response = await axios.get(`${baseUrl}/single/${id}`);
+  const response = await axios.get(
+    `http://localhost:3005/api/survey/single/${id}`
+  );
   return response.data;
 };
 

@@ -9,7 +9,6 @@ function Homepage() {
   const [popularSurveys, setPopularSurveys] = useState([]);
   useEffect(() => {
     surveyServices.getAll().then((response) => {
-      console.log("hello", response);
       const { surveys, popular } = response;
       const newestArr = surveys
         .sort((a, b) => new Date(b.created_at) - new Date(a.created_at))
@@ -47,7 +46,9 @@ function Homepage() {
         <p>Active surveys:</p>
         {activeSurveys.map((elem) => (
           <div key={elem.id}>
-            <Link to={`/api/survey/single/${elem.id}`}>{elem.survey_name}</Link>
+            <Link to={`/client/survey/single/${elem.id}`}>
+              {elem.survey_name}
+            </Link>
           </div>
         ))}
       </section>
@@ -55,7 +56,7 @@ function Homepage() {
         <p>Past surveys:</p>
         {offSurveys.map((elem) => (
           <div>
-            <Link key={elem.id} to={`/api/survey/single/${elem.id}`}>
+            <Link key={elem.id} to={`/client/survey/single/${elem.id}`}>
               {elem.survey_name}
             </Link>
           </div>
@@ -65,7 +66,9 @@ function Homepage() {
         <p>Most recent surveys:</p>
         {recentSurveys.map((elem) => (
           <div key={elem.id}>
-            <Link to={`/api/survey/single/${elem.id}`}>{elem.survey_name}</Link>
+            <Link to={`/client/survey/single/${elem.id}`}>
+              {elem.survey_name}
+            </Link>
           </div>
         ))}
       </section>
@@ -73,7 +76,9 @@ function Homepage() {
         <p>Most popular surveys:</p>
         {popularSurveys.map((elem) => (
           <div key={elem.id}>
-            <Link to={`/api/survey/single/${elem.id}`}>{elem.survey_name}</Link>
+            <Link to={`/client/survey/single/${elem.id}`}>
+              {elem.survey_name}
+            </Link>
           </div>
         ))}
       </section>

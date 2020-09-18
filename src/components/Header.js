@@ -35,7 +35,7 @@ function Header({ user }) {
                 <FontAwesomeIcon icon={faUser} /> {user}
               </button>
               <NavLink exact to="/" activeClassName="nav-active">
-                Homepage
+                Home
               </NavLink>
               <NavLink
                 exact
@@ -52,7 +52,7 @@ function Header({ user }) {
           ) : (
             <>
               <NavLink exact to="/" activeClassName="nav-active">
-                Homepage
+                Home
               </NavLink>
               <NavLink to="/register" activeClassName="nav-active">
                 Sign Up

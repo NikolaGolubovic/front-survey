@@ -34,12 +34,16 @@ function App() {
       <Header user={user} />
       <Notification />
       <Switch>
-        <Route exact path="/api/survey/create" component={CreateSurvey} />
-        <Route exact path="/api/survey/single/:id" component={SingleSurvey} />
+        <Route exact path="/client/survey/create" component={CreateSurvey} />
+        <Route
+          exact
+          path="/client/survey/single/:id"
+          component={SingleSurvey}
+        />
         <Route path="/register" component={Register} />
         <Route path="/login" component={Login} />
         <Route exact path="/" component={Homepage} />
-        <Route patch="*" component={NotFound} />
+        <Route path="*" component={NotFound} />
       </Switch>
     </Router>
   );

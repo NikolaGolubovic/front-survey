@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 
 import * as Survey from "survey-react";
-import Result from "./Result-example.js";
+import Result from "./Result.js";
 import surveyServices from "../services/surveyServices";
+import { useParams } from "react-router-dom";
 
 function SingleSurvey(props) {
   const [complete, setComplete] = useState(false);
@@ -11,12 +12,10 @@ function SingleSurvey(props) {
   const [title, setTitle] = useState("");
   const [resultsDisplay, setResultsDisplay] = useState(false);
 
-  const id = props.match.params.id;
+  const { id } = useParams();
 
   useEffect(() => {
-    console.log("hello");
     surveyServices.getSingle(id).then((res) => {
-      console.log(res);
       const stringQuestions = JSON.parse(res.surveyString);
       setJson({ questions: stringQuestions });
       setTitle(res.surveyTitle);
@@ -59,12 +58,11 @@ function SingleSurvey(props) {
             >
               {resultsDisplay ? "Hide Charts" : "Show Charts"}
             </button>
-            <div
-              className="visible-results"
-              style={{ display: resultsDisplay ? "" : "none" }}
-            >
-              <Result id={id} title={title} />
-            </div>
+            {resultsDisplay && (
+              <div>
+                <Result id={id} title={title} />
+              </div>
+            )}
           </div>
         </>
       ) : (
